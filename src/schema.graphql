@@ -1,8 +1,12 @@
-type SayHellowResponse {
-  text: String!
-  error: Boolean!
-}
-
-type Query {
-  sayHellow(name: String!): SayHellowResponse!
+type User {
+  id: Int!
+  email: String!
+  firstName: String!
+  lastName: String!
+  fullName: String!
+  age: Int!
+  password: String!
+  profilePhoto: String!
+  createdAt: String!
+  updatedAt: String!
 }
