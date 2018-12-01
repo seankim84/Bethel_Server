@@ -32,12 +32,15 @@ class User extends BaseEntity {
     @Column({type: "text"})
     profilePhoto: string;
 
+    get fullName(): string { // fullName은 method이기 때문에 여기있는것을 가져다 사용하므로, get을 사용한다.
+        return `${this.firstName}+${this.lastName}`;
+    }
+
     @CreateDateColumn()
     createdAt: string;
 
     @UpdateDateColumn()
     updatedAt: string;
-
 }
 
 export default User;
