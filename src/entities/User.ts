@@ -43,6 +43,10 @@ class User extends BaseEntity {
     @UpdateDateColumn()
     updatedAt: string;
 
+    public comparePassword(password:string ): Promise<boolean>{ // class 바깥쪽에서도 사용할 수 있는 함수를 만들때 사용 (resolver에서 사용)
+        return bcrypt.compare(password, this.password); // 사용자가 입력한 password와 아래 this.password를 비교 
+    } // compare 함수는 true or false로 반환된다.
+
     @BeforeInsert()//우리가 Insert 하기 전에 호출되는 Method
     @BeforeUpdate()//우리가 Update 하기 전에 호출되는 Method
     async savePassword(): Promise<void> { //void 값을 갖는 Promise 객체를 return 한다.
@@ -52,7 +56,7 @@ class User extends BaseEntity {
         }
     }
 
-    private hashPassword(password: string): Promise<string> { 
+    private hashPassword(password: string): Promise<string> { // private은 class 안에서 method를 선언하여 사용할때 쓴다.
         return bcrypt.hash(password, BCRYPT_ROUNDS); // hash란 모양을 바꾸어주는것
     }
 
