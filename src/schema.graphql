@@ -1,6 +1,7 @@
 type User {
   id: Int!
   email: String!
+  phoneNumber: String!
   firstName: String!
   lastName: String!
   fullName: String!
@@ -22,5 +23,5 @@ type Verification {
   key: String!
   used: Boolean!
   createdAt: String!
-  updatedAt: String!
+  updatedAt: String
 }

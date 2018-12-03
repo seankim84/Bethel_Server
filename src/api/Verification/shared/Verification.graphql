@@ -4,6 +4,7 @@ type Verification {
     paylaod: String! # Like a Key
     key: String! # (payload: +4498533232, key:3456)
     used: Boolean!
+    user: User!
     createdAt: String!
-    updatedAt: String!
+    updatedAt: String
 }

@@ -1,12 +1,14 @@
 type User {
     id: Int!
     email: String!
+    phoneNumber: String!
     firstName:String!
     lastName:String! 
     fullName: String!
     age: Int!
     password: String!
     profilePhoto: String!
+    verifications: [Verifications]
     createdAt: String!
     updatedAt: String!
 }

@@ -7,9 +7,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import Verification from './Verification';
 
 const BCRYPT_ROUNDS = 10;
 
@@ -21,6 +23,9 @@ class User extends BaseEntity {
     @Column({type: "text", unique: true})
     @IsEmail() // class-validator
     email: string;
+    
+    @Column({type: "text", unique: true })
+    phoneNumber: string;
 
     @Column({type: "text"})
     firstName: string;
@@ -36,6 +41,9 @@ class User extends BaseEntity {
 
     @Column({type: "text"})
     profilePhoto: string;
+
+    @OneToMany(type => Verification, verification => verification.user)
+    verifications: Verification[]; // User는 Verification을 가지고 있다.
 
     @CreateDateColumn()
     createdAt: string;
