@@ -1,0 +1,9 @@
+type Verification {
+    id: Int!
+    target: String! # target을 확인하여 Verified 되었는지 확인한다.
+    paylaod: String! # Like a Key
+    key: String! # (payload: +4498533232, key:3456)
+    used: Boolean!
+    createdAt: String!
+    updatedAt: String!
+}

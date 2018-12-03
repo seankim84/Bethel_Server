@@ -59,9 +59,6 @@ class User extends BaseEntity {
     private hashPassword(password: string): Promise<string> { // private은 class 안에서 method를 선언하여 사용할때 쓴다.
         return bcrypt.hash(password, BCRYPT_ROUNDS); // hash란 모양을 바꾸어주는것
     }
-
-    
-    
 }
 
 export default User;
