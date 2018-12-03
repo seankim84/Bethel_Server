@@ -24,7 +24,7 @@ class User extends BaseEntity {
     @IsEmail() // class-validator
     email: string | null; // string | null로 바꾸어야 fbconnect resolver에서 ...args 전달이 가능
     
-    @Column({type: "text", unique: true })
+    @Column({type: "text", nullable: true })
     phoneNumber: string;
 
     @Column({type: "text"})
@@ -36,7 +36,7 @@ class User extends BaseEntity {
     @Column({type: "int", nullable: true})
     age: number;
 
-    @Column({type: "text"})
+    @Column({type: "text", nullable: true})
     password: string;
 
     @Column({type: "text"})
