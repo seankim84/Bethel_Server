@@ -1,13 +1,25 @@
+type FacebookConnectResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  FacebookConnect(firstName: String!, lastName: String!, email: String!, fbId: String!): FacebookConnectResponse
+}
+
 type User {
   id: Int!
-  email: String!
+  email: String
   phoneNumber: String!
   firstName: String!
   lastName: String!
   fullName: String!
-  age: Int!
+  age: Int
   password: String!
   profilePhoto: String!
+  verifications: [Verification]
+  fbId: String
   createdAt: String!
   updatedAt: String!
 }
@@ -22,6 +34,7 @@ type Verification {
   paylaod: String!
   key: String!
   used: Boolean!
+  user: User!
   createdAt: String!
   updatedAt: String
 }

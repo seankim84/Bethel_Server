@@ -20,9 +20,9 @@ class User extends BaseEntity {
 
     @PrimaryGeneratedColumn() id: number;
     
-    @Column({type: "text", unique: true})
+    @Column({type: "text", nullable: true})
     @IsEmail() // class-validator
-    email: string;
+    email: string | null; // string | null로 바꾸어야 fbconnect resolver에서 ...args 전달이 가능
     
     @Column({type: "text", unique: true })
     phoneNumber: string;
@@ -33,7 +33,7 @@ class User extends BaseEntity {
     @Column({type: "text"})
     lastName: string;
 
-    @Column({type: "int"})
+    @Column({type: "int", nullable: true})
     age: number;
 
     @Column({type: "text"})
@@ -41,6 +41,9 @@ class User extends BaseEntity {
 
     @Column({type: "text"})
     profilePhoto: string;
+
+    @Column({type: "text", nullable: true})
+    fbId: string;
 
     @OneToMany(type => Verification, verification => verification.user)
     verifications: Verification[]; // User는 Verification을 가지고 있다.

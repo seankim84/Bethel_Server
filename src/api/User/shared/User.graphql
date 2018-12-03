@@ -1,14 +1,15 @@
 type User {
     id: Int!
-    email: String!
+    email: String
     phoneNumber: String!
     firstName:String!
     lastName:String! 
     fullName: String!
-    age: Int!
+    age: Int
     password: String!
     profilePhoto: String!
-    verifications: [Verifications]
+    verifications: [Verification]
+    fbId: String
     createdAt: String!
     updatedAt: String!
 }
