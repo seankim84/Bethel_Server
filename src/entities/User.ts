@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { IsEmail } from 'class-validator';
 import {
   BaseEntity,
@@ -53,6 +53,10 @@ class User extends BaseEntity {
 
     @UpdateDateColumn()
     updatedAt: string;
+
+    get fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
 
     public comparePassword(password:string ): Promise<boolean>{ // class 바깥쪽에서도 사용할 수 있는 함수를 만들때 사용 (resolver에서 사용)
         return bcrypt.compare(password, this.password); // 사용자가 입력한 password와 아래 this.password를 비교 
