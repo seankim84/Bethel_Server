@@ -30,7 +30,6 @@ type GetMyProfileResponse {
 
 type Query {
   GetMyProfile: GetMyProfileResponse!
-  user: User!
 }
 
 type User {
